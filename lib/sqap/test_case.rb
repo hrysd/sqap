@@ -7,7 +7,7 @@ module Sqap
 
       yield
 
-      LogSubscriber.deattach_from :active_record
+      LogSubscriber.detach_from :active_record
     end
   end
 end
