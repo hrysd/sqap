@@ -1,15 +1,19 @@
 module Sqap
   class Pool
-    attr_reader :pool
+    attr_accessor :pool
 
-    delegate :[], :keys, :delete, to: :pool
+    delegate :push, to: :pool
 
     def initialize
-      @pool = Hash.new {|h, k| h[k] = [] }
+      @pool = []
     end
 
-    def append(key, sql)
-      pool[key].push sql
+    def content
+      @pool
+    end
+
+    def clear!
+      @pool = []
     end
   end
 end

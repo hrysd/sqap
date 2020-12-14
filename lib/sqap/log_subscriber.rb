@@ -14,11 +14,7 @@ module Sqap
 
       sql = payload[:sql]
 
-      Sqap.append hashing_source(extract_query_source_location(caller)), sql
-    end
-
-    private def hashing_source(source)
-      Digest::MD5.hexdigest(source)
+      Sqap.append sql
     end
   end
 end

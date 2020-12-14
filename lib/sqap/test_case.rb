@@ -7,7 +7,7 @@ module Sqap
 
       yield
 
-      Sqap.save
+      Sqap.save [self.class.name, self.name].join('_')
       LogSubscriber.detach_from :active_record
     end
   end
