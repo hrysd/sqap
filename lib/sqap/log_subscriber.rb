@@ -4,6 +4,8 @@ module Sqap
     IGNORE_QUERYIES = [/ar_internal_metadata/]
 
     def sql(event)
+      return unless Sqap.enabled?
+
       payload = event.payload
 
       return if payload[:name].nil?
