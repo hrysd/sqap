@@ -2,6 +2,8 @@ require 'sqap/storage'
 
 module Sqap
   class CLI
+    attr_reader :before, :after
+
     def initialize(before, after)
       @before = before
       @after = after
