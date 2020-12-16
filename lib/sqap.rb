@@ -1,7 +1,8 @@
-require 'sqap/log_subscriber'
 require 'sqap/pool'
 require 'sqap/test_case'
 require 'sqap/storage'
+require 'sqap/log_subscriber'
+require 'sqap/subscriber_ext'
 
 require 'sqap/version'
 
@@ -38,3 +39,7 @@ module Sqap
 end
 
 ActiveSupport::TestCase.prepend Sqap::TestCase
+
+if ActiveSupport.version < Gem::Version.new('6.0.0')
+  ActiveSupport::Subscriber.send :include, Sqap::SubscriberExt
+end
