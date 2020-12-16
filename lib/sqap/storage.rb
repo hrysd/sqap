@@ -12,7 +12,14 @@ module Sqap
     end
 
     def save(basename, content)
+      # XXX: metadata
       File.write(File.join(directory, "#{basename}.json"), JSON.dump(content))
+    end
+
+    def files
+      Dir.children(directory).map {|file|
+        File.join(directory, file)
+      }
     end
   end
 end

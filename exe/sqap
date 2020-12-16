@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift("#{__dir__}/../lib")
+
+require 'sqap/cli'
+
+cli = Sqap::CLI.new(ARGV[0], ARGV[1])
+cli.run
