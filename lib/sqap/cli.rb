@@ -25,11 +25,12 @@ module Sqap
           next
         end
 
-        difference = parse(this), parse(that)
+        diff = difference(parse(this), parse(that))
 
-        unless difference.empty?
-          puts basename
-          puts difference
+        unless diff.empty?
+          puts "=== #{basename} ==="
+          pp diff.to_a
+          puts "=== /#{basename} ==="
         end
       end
     end
